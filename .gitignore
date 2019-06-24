@@ -112,6 +112,8 @@ celerybeat-schedule
 .env
 .venv
 .idea
+.idea/
+*.idea
 env/
 venv/
 ENV/
