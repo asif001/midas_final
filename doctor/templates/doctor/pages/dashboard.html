@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Patient List</title>
+    <link rel="stylesheet" type="text/css" href="{% static "patient/css/dashboard.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav" href="{% url 'doctor:logout' %}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron vertical-center">
+            <div class="container m-5 pb-5">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="mt-2">Pending</h3>
+                            <div class="list-group">
+                                {% if pending.count %}
+                                    {% for pending in pending %}
+                                      <a href="{% url 'doctor:analysis' pending.id %}" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-between">
+                                          <h5 class="mb-1">Type : {{ pending.type.name }}</h5>
+                                          <small>{{ pending.date }}</small>
+                                        </div>
+                                          <p class="mb-1">Name : {{ pending.patientId.name }}</p>
+                                          <p>
+                                        <img src="{{ pending.images.url }}" style="width: 20%;height: 20%;" alt="Not found"/>
+                                          </p>
+                                      </a>
+                                    {% endfor %}
+                                {% else %}
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-between">
+                                          <h5 class="mb-1">Nothing to show</h5>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h3 class="mt-2">Reported</h3>
+                            <div class="list-group">
+                                  {% if submitted.count %}
+                                    {% for submitted in submitted %}
+                                      <a href="{% url 'doctor:submitted' submitted.id %}" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-between">
+                                          <h5 class="mb-1">Type : {{ submitted.type.name }}</h5>
+                                          <small>{{ submitted.date }}</small>
+                                        </div>
+                                          <p class="mb-1">Name : {{ submitted.patientId.name }}</p>
+                                          <p>
+                                        <img src="{{ submitted.image.url }}" style="width: 20%;height: 20%;" alt="Not found"/>
+                                          </p>
+                                      </a>
+                                    {% endfor %}
+                                {% else %}
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-between">
+                                          <h5 class="mb-1">Nothing Reported</h5>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <title>Chest Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'doctor/css/analysis.css' %}">
+    <link rel="stylesheet" href="{% static 'doctor/css/slider.css' %}">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        function getId(id = {{ pendingItem.id }}){
+            return id;
+        }
+        function getType(type = "{{ pendingItem.type }}") {
+            return type;
+        }
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav" href="{% url 'doctor:logout' %}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="jumbotron vertical-center">
+            <div class="container m-5 pb-5">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="mt-2">X-ray Image</h3>
+                            <div class="list-group">
+                                      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <img id="myImg" src="{{ pendingItem.images.url }}" style="width: 100%;height: 100%" alt="Not found"/>
+                                      </a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h3 class="mt-2">Tools</h3>
+                            <div class="list-group">
+                                      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <p id="amount" style="border:0; font-weight:bold;">Threshold range : 0 - 255</p>
+                                        </div>
+
+                                          <div id="slider-range" style="width: 100%;"></div>
+
+                                      </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <p id="alpha" style="border:0; font-weight:bold;">Alpha : 1</p>
+                                        </div>
+                                        <div id="slider-range-alpha" style="width: 100%;"></div>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <p id="beta" style="border:0; font-weight:bold;">Beta : 0</p>
+                                        </div>
+                                        <div id="slider-range-beta" style="width: 100%;"></div>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-center">
+                                            <button onclick="detectEdgeFun()" style="width: 40%;">Detect Edges</button>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-center">
+                                            <button onclick="eqHistFun()" style="width: 40%;">Equalize Histogram</button>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-center">
+                                            <button onclick="getResultFun('position')" style="width: 40%;">Check View</button>
+                                        </div>
+                                        <p>
+                                        <p id="position"></p>
+                                        </p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-center">
+                                            <button onclick="getResultFun()" style="width: 40%;">Detect Pneumonia</button>
+                                        </div>
+                                        <p>
+                                        <p id="pneumonia"></p>
+                                        </p>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                <p>
+
+               <p>
+
+                <div class="row justify-content-center">
+
+                    <p>
+                        <form method="post">
+
+                            {% csrf_token %}
+                            {{ form.report|as_crispy_field }}
+
+                            <button type="submit">Submit</button>
+
+                        </form>
+
+                    </p>
+
+                </div>
+            </p>
+
+            </div>
+    </div>
+
+
+</body>
+
+<script src="{% static 'doctor/js/changethreshold.js' %}"></script>
+<script src="{% static 'doctor/js/changeContrast.js' %}"></script>
+<script src="{% static 'doctor/js/detectEdge.js' %}"></script>
+<script src="{% static 'doctor/js/equHist.js' %}"></script>
+<script src="{% static 'doctor/js/getResult.js' %}"></script>
+<script src="{% static 'doctor/js/slider.js' %}"></script>
+
+</html>

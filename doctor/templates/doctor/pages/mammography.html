@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Chest Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'doctor/css/analysis.css' %}">
+    <link rel="stylesheet" href="{% static 'doctor/css/slider.css' %}">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        function getId(id = {{ pendingItem.id }}){
+            return id;
+        }
+        function getType(type = {{ pendingItem.type }}) {
+            return type;
+        }
+    </script>
+</head>
+<body>
+
+    <img id="myImg" src="{{ pendingItem.images.url }}" style="width: 25%;height: 25%" alt="Not found"/>
+
+    <p>
+    <label for="amount">Threshold range:</label>
+    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+
+    <div id="slider-range"></div>
+
+    <p>
+        <label id="label_alpha" for="alpha">Alpha : 0</label>
+    <p>
+    <input id="alpha" type="range" step="0.01" min="1" max="3"
+           onchange="changeContrastFun(document.getElementById('alpha').value, document.getElementById('beta').value)"
+           oninput="document.getElementById('label_alpha').innerText = 'Alpha : ' + this.value">
+    </p>
+    <label id="label_beta" for="beta">Beta : 0</label>
+    <p>
+    <input id="beta" type="range" min="0" max="100"
+            onchange="changeContrastFun(document.getElementById('alpha').value, document.getElementById('beta').value)"
+            oninput="document.getElementById('label_beta').innerText = 'Beta : ' + this.value">
+    </p>
+
+    </p>
+
+    <p>
+        <form method="post">
+
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+    </p>
+
+
+</body>
+
+<script src="{% static 'doctor/js/changethreshold.js' %}"></script>
+<script src="{% static 'doctor/js/changeContrast.js' %}"></script>
+<script src="{% static 'doctor/js/getResult.js' %}"></script>
+<script src="{% static 'doctor/js/slider.js' %}"></script>
+
+</html>
