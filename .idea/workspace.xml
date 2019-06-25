@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44418aa6-cbb5-4710-837a-98fa7dc501fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assistant/static/assistant/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/assistant/static/assistant/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assistant/templates/assistant/pages/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/assistant/templates/assistant/pages/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assistant/templates/assistant/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/assistant/templates/assistant/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/static/doctor/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/static/doctor/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/static/doctor/js/getResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/static/doctor/js/getResult.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doctor/templates/doctor/pages/chestanalysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/templates/doctor/pages/chestanalysis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/templates/doctor/pages/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/templates/doctor/pages/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doctor/templates/doctor/pages/mammography.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/templates/doctor/pages/mammography.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doctor/templates/doctor/pages/msd.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/templates/doctor/pages/msd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/templates/doctor/pages/submitted.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/templates/doctor/pages/submitted.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/templates/doctor/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/templates/doctor/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/img/dummy/img-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/home/img/dummy/img-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/pages/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/Musculoskeletal/XR_ELBOW/Elbow_Result_of_VGG_Model.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/Musculoskeletal/XR_FINGER/Finger_Result_of_VGG_Model.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/Musculoskeletal/XR_FOREARM/Forearm_Result_of_VGG_Model.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/Musculoskeletal/XR_HAND/Hand_Result_of_VGG_Model.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/Musculoskeletal/XR_HUMERUS/Humerus_Result_of_VGG_Model.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/Musculoskeletal/XR_SHOULDER/Shoulder_Result_of_VGG_Model.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/Musculoskeletal/XR_WRIST/Wrist_Result_of_VGG_Model.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/pneumonia/comment1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/media/classifiers/pneumonia/comment1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/pneumonia/comment2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/media/classifiers/pneumonia/comment2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/pneumonia/comment3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/media/classifiers/pneumonia/comment3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/classifiers/pneumonia/comment4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/media/classifiers/pneumonia/comment4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/static/patient/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/patient/static/patient/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/templates/patient/pages/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/pages/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/templates/patient/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/registration/login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,21 +17,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/doctor/views.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/doctor/templates/doctor/pages/chestanalysis.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="245" column="17" lean-forward="true" selection-start-line="245" selection-start-column="17" selection-end-line="245" selection-end-column="17" />
+            <state relative-caret-position="276">
+              <caret line="166" selection-start-line="166" selection-end-line="166" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/doctor/static/doctor/js/getResult.js">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/doctor/templates/doctor/pages/mammography.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="156" column="58" selection-start-line="156" selection-start-column="58" selection-end-line="156" selection-end-column="58" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/doctor/templates/doctor/pages/msd.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="164" column="58" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -68,8 +64,8 @@
       <list>
         <option value="CSS File" />
         <option value="Python Script" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -87,7 +83,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/doctor/templates/doctor/hello.html" />
         <option value="$PROJECT_DIR$/doctor/templates/doctor/pages/lists.html" />
         <option value="$PROJECT_DIR$/doctor/templates/doctor/pages/information.html" />
         <option value="$PROJECT_DIR$/doctor/static/doctor/js/getid.js" />
@@ -115,7 +110,6 @@
         <option value="$PROJECT_DIR$/patient/static/patient/css/dashboard.css" />
         <option value="$PROJECT_DIR$/midas_final/settings.py" />
         <option value="$PROJECT_DIR$/doctor/static/doctor/css/slider.css" />
-        <option value="$PROJECT_DIR$/doctor/static/doctor/css/analysis.css" />
         <option value="$PROJECT_DIR$/doctor/static/doctor/js/detectEdge.js" />
         <option value="$PROJECT_DIR$/doctor/static/doctor/js/equHist.js" />
         <option value="$PROJECT_DIR$/doctor/static/doctor/js/changeContrast.js" />
@@ -131,17 +125,19 @@
         <option value="$PROJECT_DIR$/patient/static/patient/css/login.css" />
         <option value="$PROJECT_DIR$/doctor/templates/doctor/pages/submitted.html" />
         <option value="$PROJECT_DIR$/doctor/templates/doctor/pages/dashboard.html" />
-        <option value="$PROJECT_DIR$/doctor/templates/doctor/pages/msd.html" />
-        <option value="$PROJECT_DIR$/doctor/templates/doctor/pages/chestanalysis.html" />
-        <option value="$PROJECT_DIR$/doctor/templates/doctor/pages/mammography.html" />
         <option value="$PROJECT_DIR$/assistant/templates/assistant/pages/dashboard.html" />
         <option value="$PROJECT_DIR$/patient/templates/patient/pages/dashboard.html" />
         <option value="$PROJECT_DIR$/doctor/static/doctor/js/getResult.js" />
         <option value="$PROJECT_DIR$/doctor/views.py" />
+        <option value="$PROJECT_DIR$/doctor/static/doctor/js/modal.js" />
+        <option value="$PROJECT_DIR$/doctor/static/doctor/css/analysis.css" />
+        <option value="$PROJECT_DIR$/doctor/templates/doctor/pages/chestanalysis.html" />
+        <option value="$PROJECT_DIR$/doctor/templates/doctor/pages/mammography.html" />
+        <option value="$PROJECT_DIR$/doctor/templates/doctor/pages/msd.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -165,6 +161,35 @@
               <item name="midas_final" type="b2602c69:ProjectViewProjectNode" />
               <item name="midas_final" type="462c0819:PsiDirectoryNode" />
               <item name="doctor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="midas_final" type="b2602c69:ProjectViewProjectNode" />
+              <item name="midas_final" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="midas_final" type="b2602c69:ProjectViewProjectNode" />
+              <item name="midas_final" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="midas_final" type="b2602c69:ProjectViewProjectNode" />
+              <item name="midas_final" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="midas_final" type="b2602c69:ProjectViewProjectNode" />
+              <item name="midas_final" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -271,23 +296,23 @@
       <workItem from="1561207836810" duration="77334000" />
       <workItem from="1561361669421" duration="992000" />
       <workItem from="1561394171674" duration="6453000" />
-      <workItem from="1561402722198" duration="16785000" />
+      <workItem from="1561402722198" duration="20887000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175066000" />
+    <option name="totallyTimeSpent" value="179168000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26340482" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26340482" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32956153" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32956153" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -336,9 +361,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/patient/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/doctor/templates/doctor/pages/analysis.html" />
     <entry file="file://$PROJECT_DIR$/home/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -518,13 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doctor/static/doctor/css/analysis.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/doctor/static/doctor/js/detectEdge.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -649,30 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doctor/templates/doctor/pages/msd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="106" column="97" selection-start-line="106" selection-start-column="77" selection-end-line="106" selection-end-column="97" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#a#5;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doctor/templates/doctor/pages/chestanalysis.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="96" column="98" selection-start-line="96" selection-start-column="98" selection-end-line="96" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doctor/templates/doctor/pages/mammography.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="110" column="60" selection-start-line="110" selection-start-column="47" selection-end-line="110" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/patient/templates/patient/pages/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -699,10 +690,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/doctor/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="245" column="17" lean-forward="true" selection-start-line="245" selection-start-column="17" selection-end-line="245" selection-end-column="17" />
+        <state relative-caret-position="4148">
+          <caret line="244" column="11" lean-forward="true" selection-start-line="244" selection-start-column="11" selection-end-line="244" selection-end-column="11" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctor/static/doctor/css/analysis.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctor/static/doctor/js/modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctor/templates/doctor/pages/mammography.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="156" column="58" selection-start-line="156" selection-start-column="58" selection-end-line="156" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctor/templates/doctor/pages/chestanalysis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="166" selection-start-line="166" selection-end-line="166" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctor/templates/doctor/pages/msd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="164" column="58" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

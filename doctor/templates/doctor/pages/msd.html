@@ -23,6 +23,7 @@
 </head>
 <body>
 
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="{% url 'home:home' %}">MIDAS</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,6 +68,10 @@
                                       <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
                                         <img id="myImg" src="{{ pendingItem.images.url }}" style="width: 100%;height: 100%" alt="Not found"/>
                                       </a>
+                            </div>
+                            <br>
+                            <div style="margin-left: 35%;">
+                                <a class="btn btn-info" style="width: 140px;" href="{{ pendingItem.images.url }}">Original Size</a>
                             </div>
                         </div>
                         <div class="col">
