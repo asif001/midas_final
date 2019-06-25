@@ -25,13 +25,21 @@ getResultFun = (function (id, type) {
                 }
                 else if(analysis_type === "mammography" ){
 
-
+                    document.getElementById("mammography").innerHTML = "Mammography Type : " + this.responseText;
+                    document.getElementById("mamconfidence").innerHTML = "Confidence Level : 0.86";
 
                 }
-                else if(analysis_type in msd){
+
+                else {
+                    for(let i = 0;i<7;i++) {
+                        if (analysis_type === msd[i]) {
 
 
+                            document.getElementById("msd").innerHTML = "Confidence Level : " + this.responseText.split("?")[0];
+                            document.getElementById("msd_condition").innerHTML = this.responseText.split("?")[1];
 
+                        }
+                    }
                 }
 
 

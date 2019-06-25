@@ -23,19 +23,43 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link nav" href="{% url 'doctor:logout' %}">Logout</a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home:home' %}">MIDAS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
-    </nav>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#"></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'doctor:logout' %}">Logout</a>
+    </form>
+  </div>
+</nav>
 
+    <br><br>
 
-    <div class="jumbotron vertical-center">
-            <div class="container m-5 pb-5">
+            <div class="container m-7 pb-5">
                     <div class="row">
                         <div class="col">
                             <h3 class="mt-2">X-ray Image</h3>
@@ -70,17 +94,17 @@
                                     </a>
                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
                                         <div class="d-flex w-100 justify-content-center">
-                                            <button onclick="detectEdgeFun()" style="width: 40%;">Detect Edges</button>
+                                            <button onclick="detectEdgeFun()" class="btn btn-info" style="width: 40%;">Detect Edges</button>
                                         </div>
                                     </a>
                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
                                         <div class="d-flex w-100 justify-content-center">
-                                            <button onclick="eqHistFun()" style="width: 40%;">Equalize Histogram</button>
+                                            <button onclick="eqHistFun()" class="btn btn-info" style="width: 40%;">Equalize Histogram</button>
                                         </div>
                                     </a>
                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
                                         <div class="d-flex w-100 justify-content-center">
-                                            <button onclick="getResultFun('position')" style="width: 40%;">Check View</button>
+                                            <button onclick="getResultFun('position')" class="btn btn-info" style="width: 40%;">Check View</button>
                                         </div>
                                         <p>
                                         <p id="position"></p>
@@ -88,10 +112,35 @@
                                     </a>
                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
                                         <div class="d-flex w-100 justify-content-center">
-                                            <button onclick="getResultFun()" style="width: 40%;">Detect Pneumonia</button>
+                                            <button onclick="getResultFun()" class="btn btn-info" style="width: 40%;">Detect Pneumonia</button>
                                         </div>
                                         <p>
                                         <p id="pneumonia"></p>
+                                        </p>
+                                    </a>
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-secondary">
+                                        <div class="d-flex w-100 justify-content-center">
+                                        </div>
+                                        <p>
+                                            <form method="post">
+
+                                                <input type="hidden" name="csrfmiddlewaretoken" value="OSEZx7mws57UIqCURgpbibO4RfBbhMJjzdyejV4tm0axYNBh9QR6bsovLLIaQ3oo">
+
+                                                        <div id="div_id_report" class="form-group">
+
+                                                                <label for="id_report" class="col-form-label  requiredField">
+                                                                    <b>Report</b><span class="asteriskField">*</span>
+                                                                </label>
+
+                                                                    <div class="">
+                                                                        <textarea name="report" cols="80" rows="5" class="textarea form-control" required id="id_report"></textarea>
+
+                                                                    </div>
+                                                        </div>
+                                                <button type="submit" class="btn btn-info">Submit</button>
+
+                                            </form>
+
                                         </p>
                                     </a>
                             </div>
@@ -99,27 +148,7 @@
                     </div>
                 <p>
 
-               <p>
-
-                <div class="row justify-content-center">
-
-                    <p>
-                        <form method="post">
-
-                            {% csrf_token %}
-                            {{ form.report|as_crispy_field }}
-
-                            <button type="submit">Submit</button>
-
-                        </form>
-
-                    </p>
-
-                </div>
-            </p>
-
             </div>
-    </div>
 
 
 </body>

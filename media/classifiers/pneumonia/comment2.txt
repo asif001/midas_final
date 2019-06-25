@@ -1,1 +1,2 @@
-Opacities detected on lower part of the left lung and middle part of the right lung, evidence of pneumonia. 
+Opacities detected on lower part of the left lung and middle part of the right lung, evidence of pneumonia.
+Pneumonia confidence: 0.89

@@ -1,3 +1,5 @@
+from time import sleep
+
 from django.http import HttpResponsePermanentRedirect, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -77,6 +79,20 @@ def logout(request):
             doctor.save()
             return HttpResponsePermanentRedirect(reverse('home:home'))
 
+    doctor_set = PatientDetails.objects.all()
+    for doctor in doctor_set:
+        if doctor.isActive:
+            doctor.isActive = False
+            doctor.save()
+            return HttpResponsePermanentRedirect(reverse('home:home'))
+
+    doctor_set = AssistantDetails.objects.all()
+    for doctor in doctor_set:
+        if doctor.isActive:
+            doctor.isActive = False
+            doctor.save()
+            return HttpResponsePermanentRedirect(reverse('home:home'))
+
     return HttpResponsePermanentRedirect(reverse('home:home'))
 
 
@@ -130,6 +146,7 @@ def analysis(request, pendingid):
 
     # READ WRITE IMAGE #
     img = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"], 0)
+    print(getdirectorystuffs(pendingitem)["IMAGE_DIR"])
     cv2.imwrite(getdirectorystuffs(pendingitem)["TEMP_IMAGE_DIR"], img)
 
     # print(pendingitem.images.url)
@@ -163,15 +180,61 @@ def result(request):
             print(context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0], context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][1])
             report = open("I:/study/iyess12/midas_final/media/classifiers/pneumonia/"
                           + context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0], "r+")
-            report = report.read()
-            return HttpResponse(str(report)+"?"+context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][1])
+
+            final_report = ""
+
+            for line in report:
+                final_report = final_report + line + "<br/>"
+
+            sleep(1.5)
+            return HttpResponse(final_report+"?"+context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][1])
     elif type in ["position"]:
         result = main.view_predict(getdirectorystuffs(pendingitem)["IMAGE_DIR"])
         return HttpResponse(result)
     elif type in ['elbow', 'finger', 'forearm', 'hand', 'humerus', 'shoulder', 'wrist']:
-        pass
+        context = {"abnormal_XR_ELBOW_hist_276.png": ['Abnormal', 'Elbow_Result_of_VGG_Model1.txt', 'XR_ELBOW'],
+                   "normal_XR_ELBOW_hist_13.png": ['Normal', 'Elbow_Result_of_VGG_Model2.txt', 'XR_ELBOW'],
+                   "abnormal_XR_FINGER_hist_422.png": ['Abnormal', 'Finger_Result_of_VGG_Model1.txt', 'XR_FINGER'],
+                   "normal_XR_FINGER_hist_82.png": ['Normal', 'Finger_Result_of_VGG_Model2.txt', 'XR_FINGER'],
+                   "abnormal_XR_FOREARM_hist_231.png": ['Abnormal', 'Forearm_Result_of_VGG_Model1.txt', 'XR_FOREARM'],
+                   "normal_XR_FOREARM_hist_109.png": ['Normal', 'Forearm_Result_of_VGG_Model.txt2', 'XR_FOREARM'],
+                   "abnormal_XR_HAND_hist_348.png": ['Abnormal', 'Hand_Result_of_VGG_Model.txt1', 'XR_HAND'],
+                   "normal_XR_HAND_hist_155.png": ['Normal', 'Hand_Result_of_VGG_Model2.txt', 'XR_HAND'],
+                   "abnormal_XR_HUMERUS_hist_267.png": ['Abnormal', 'Humerus_Result_of_VGG_Model1.txt', 'XR_HUMERUS'],
+                   "normal_XR_HUMERUS_hist_68.png": ['Normal', 'Humerus_Result_of_VGG_Model2.txt', 'XR_HUMERUS'],
+                   "abnormal_XR_SHOULDER_hist_240.png": ['Abnormal', 'Shoulder_Result_of_VGG_Model1.txt', 'XR_SHOULDER'],
+                   "normal_XR_SHOULDER_hist_13.png": ['Normal', 'Shoulder_Result_of_VGG_Model2.txt', 'XR_SHOULDER'],
+                   "abnormal_XR_WRIST_hist_422.png": ['Abnormal', 'Wrist_Result_of_VGG_Model1.txt', 'XR_WRIST'],
+                   "normal_XR_WRIST_hist_64.png": ['Normal', 'Wrist_Result_of_VGG_Model2.txt', 'XR_WRIST']}
+
+        if getdirectorystuffs(pendingitem)['IMAGE_NAME'] in context:
+            report = open("I:/study/iyess12/midas_final/media/classifiers/Musculoskeletal/" +
+                          context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][2] + "/" +
+                          context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][1], "r+")
+
+            msd_type = context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0]
+
+            final_report = ""
+
+            for line in report:
+                final_report = final_report + line + "<br/>"
+
+            sleep(0.5)
+            return HttpResponse(final_report + "?" + msd_type)
+
     elif type in ["mammography"]:
-        pass
+        context = {"benign1.png": ["Benign"], "benign2.png": ["Benign"],
+                   "InSitu1.png": ["Insitu"], "InSitu2.png": ["Insitu"],
+                   "Invasive1.png": ["Invasive"], "Invasive2.png": ["Invasive"],
+                   "Normal1.png": ["Normal"], "Normal2.png": ["Normal"]}
+
+        report = ""
+
+        if getdirectorystuffs(pendingitem)['IMAGE_NAME'] in context:
+            report = context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0]
+
+        sleep(0.5)
+        return HttpResponse(report)
 
     return HttpResponse("OK")
 
@@ -249,3 +312,7 @@ def equalize_hist(request):
     cv2.imwrite(getdirectorystuffs(pendingitem)["TEMP_IMAGE_DIR"], img)
 
     return HttpResponse(getdirectorystuffs(pendingitem)["TEMP_IMAGE_SRC"])
+
+
+def print_report(request):
+    return render(request, 'doctor/pages/print.html')

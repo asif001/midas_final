@@ -12,6 +12,7 @@ urlpatterns = [
     path('analysis/<int:pendingid>', never_cache(views.analysis), name='analysis'),
     path('analysis/result', never_cache(views.result), name="result"),
     path('analysis/eqHist', never_cache(views.equalize_hist), name="eq_hist"),
+    path('analysis/print', never_cache(views.print_report), name="print"),
     path('analysis/detectEdge', never_cache(views.detect_edge), name="detect_edge"),
     path('analysis/changeThreshold', never_cache(views.change_threshold), name='changethreshold'),
     path('analysis/changeContrast', never_cache(views.change_contrast), name='changecontrast'),
