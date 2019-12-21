@@ -22,6 +22,9 @@
 In this project an web application has been implemented to detect diseases and monitor them using different image processing tools.
 An automated prescription ystem also implemented using keras Deep Learning library. Disease detection accuracy average 95% on Breast Cancer, Musculoskeletal Disorder and Pneumonia.
 
+## Motivation
+The project is made for the international competition IEEE YESS12: Maker Fair 2019
+
 ## Report
 ![Generated Report](media/report.PNG)
 
