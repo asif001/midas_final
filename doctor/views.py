@@ -184,7 +184,7 @@ def result(request):
 
         if getdirectorystuffs(pendingitem)['IMAGE_NAME'] in context:
             print(context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0], context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][1])
-            report = open("I:/updated/midas_final/media/classifiers/pneumonia/"
+            report = open("/home/asifurarahman/midas_final/media/classifiers/pneumonia/"
                           + context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0], "r+")
 
             final_report = ""
@@ -214,7 +214,7 @@ def result(request):
                    "normal_XR_WRIST_hist_64.png": ['Normal', 'Wrist_Result_of_VGG_Model2.txt', 'XR_WRIST']}
 
         if getdirectorystuffs(pendingitem)['IMAGE_NAME'] in context:
-            report = open("I:/study/iyess12/midas_final/media/classifiers/Musculoskeletal/" +
+            report = open("/home/asifurarahman/midas_final/midas_final/media/classifiers/Musculoskeletal/" +
                           context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][2] + "/" +
                           context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][1], "r+")
 
