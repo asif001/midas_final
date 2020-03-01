@@ -6,7 +6,7 @@ certifi==2019.11.28
 chardet==3.0.4
 cycler==0.10.0
 decorator==4.4.1
-Django==3.0.1
+Django>=3.0.3
 django-crispy-forms==1.8.1
 gast==0.2.2
 google-auth==1.10.0
@@ -46,7 +46,7 @@ scipy==1.4.1
 six==1.13.0
 sqlparse==0.3.0
 tensorboard==2.0.2
-tensorflow==2.0.0
+tensorflow>=2.0.1
 tensorflow-estimator==2.0.1
 termcolor==1.1.0
 urllib3==1.25.7
