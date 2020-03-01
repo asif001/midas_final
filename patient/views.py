@@ -53,7 +53,7 @@ def login(request):
                     patient.save()
                     return HttpResponsePermanentRedirect(reverse('patient:dashboard'))
         else:
-            print("Not working")
+            pass
 
     else:
         form = PatientLogin()

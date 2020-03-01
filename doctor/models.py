@@ -23,13 +23,11 @@ class Types(models.Model):
 
 
 def content_file_name_pending(instance, filename):
-    print(instance.doctorId, instance.type, filename)
     return '/'.join(["images", str(instance.doctorId.userId), "pending", str(instance.patientId), str(instance.type),
                      str(filename)])
 
 
 def content_file_name_submitted(instance, filename):
-    print(instance.doctorId, instance.type, filename)
     return '/'.join(["images", str(instance.doctorId.userId), "submitted", str(instance.patientId), str(instance.type),
                      str(filename)])
 

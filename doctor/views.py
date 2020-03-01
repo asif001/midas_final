@@ -62,7 +62,7 @@ def login(request):
                     doctor.save()
                     return HttpResponsePermanentRedirect(reverse('doctor:dashboard'))
         else:
-            print("Not working")
+            pass
 
     else:
         form = DoctorLogin()
@@ -112,7 +112,6 @@ def getdirectorystuffs(pendingitem):
 
 # Analysis The Patient's Pending Item
 def analysis(request, pendingid):
-    print("I am in analysis")
     if request.method == 'POST':
         form = ReportForm(request.POST)
         if form.is_valid():
@@ -139,7 +138,6 @@ def analysis(request, pendingid):
 
     try:
         pendingitem = PendingList.objects.get(id=pendingid)
-        print(pendingitem.patientId)
     except:
         return HttpResponsePermanentRedirect(reverse('doctor:dashboard'))
 
@@ -148,9 +146,7 @@ def analysis(request, pendingid):
 
     # READ WRITE IMAGE #
     img = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"], 0)
-    print(getdirectorystuffs(pendingitem)["IMAGE_DIR"])
     cv2.imwrite(getdirectorystuffs(pendingitem)["TEMP_IMAGE_DIR"], img)
-    print(pendingitem.type.name)
 
     # print(pendingitem.images.url)
     if pendingitem.type.name in ["chest", "Pneumonia"]:
@@ -168,7 +164,6 @@ def result(request):
     if request.method == "GET":
         pending_id = int(request.GET.get('id'))
         type = str(request.GET.get('type'))
-        print(pending_id, type)
     else:
         return HttpResponsePermanentRedirect(reverse('doctor:dashboard'))
 
@@ -178,12 +173,10 @@ def result(request):
         return HttpResponsePermanentRedirect(reverse('doctor:dashboard'))
 
     if type in ["chest", "Pneumonia"]:
-        print("generating pneumonia result")
         context = {'img_1.jpg': ['comment1.txt', 'report_1.jpg'], 'img_2.jpg': ['comment2.txt', 'report_2.jpg'],
                    'img_3.jpg': ['comment3.txt', 'report_3.jpg'], 'img_4.jpg': ['comment4.txt', 'report_4.jpg']}
 
         if getdirectorystuffs(pendingitem)['IMAGE_NAME'] in context:
-            print(context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0], context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][1])
             report = open("/home/asifurarahman/midas_final/media/classifiers/pneumonia/"
                           + context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0], "r+")
 
@@ -262,10 +255,6 @@ def change_threshold(request):
     maximum = int(request.GET.get('maximum'))
     pendingitem = PendingList.objects.get(id=pendingid)
 
-    print(int(request.GET.get('minimum')))
-    print(int(request.GET.get('maximum')))
-    print(int(request.GET.get('id')))
-
     # Thresholding
     img = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"], 0)
     mask = (img >= minimum) & (img <= maximum)
@@ -281,15 +270,11 @@ def change_contrast(request):
     beta = int(request.GET.get('beta'))
     pendingitem = PendingList.objects.get(id=pendingid)
 
-    print(alpha)
-    print(beta)
     # print(pendingid)
 
     img = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"], 0)
     img = cv2.convertScaleAbs(img, alpha=alpha, beta=beta)
     cv2.imwrite(getdirectorystuffs(pendingitem)["TEMP_IMAGE_DIR"], img)
-
-    print(getdirectorystuffs(pendingitem)["TEMP_IMAGE_SRC"])
 
     return HttpResponse(getdirectorystuffs(pendingitem)["TEMP_IMAGE_SRC"])
 
@@ -297,7 +282,6 @@ def change_contrast(request):
 def detect_edge(request):
     pendingid = int(request.GET.get('id'))
     pendingitem = PendingList.objects.get(id=pendingid)
-    print(pendingid)
 
     # print(pendingid)
     img = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"], 0)
@@ -307,10 +291,10 @@ def detect_edge(request):
     return HttpResponse(getdirectorystuffs(pendingitem)["TEMP_IMAGE_SRC"])
 
 
+
 def equalize_hist(request):
     pendingid = int(request.GET.get('id'))
     pendingitem = PendingList.objects.get(id=pendingid)
-    print(pendingid)
 
     # print(pendingid)
     img = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"], 0)
