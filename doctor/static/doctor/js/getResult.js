@@ -12,7 +12,15 @@ getResultFun = (function (id, type) {
 
             if (this.readyState === 4 && this.status === 200) {
 
-                if(analysis_type === "chest"){
+
+                if(analysis_type === "Pneumonia"){
+
+                    document.getElementById("pneumonia").innerHTML = this.responseText.split("?")[0];
+                    document.getElementById("myImg").src = "../../../../media/classifiers/pneumonia/"+this.responseText.split("?")[1];
+
+                }
+
+                else if(analysis_type === "chest"){
 
                     document.getElementById("pneumonia").innerHTML = this.responseText.split("?")[0];
                     document.getElementById("myImg").src = "../../../../media/classifiers/pneumonia/"+this.responseText.split("?")[1];

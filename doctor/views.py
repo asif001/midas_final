@@ -112,6 +112,7 @@ def getdirectorystuffs(pendingitem):
 
 # Analysis The Patient's Pending Item
 def analysis(request, pendingid):
+    print("I am in analysis")
     if request.method == 'POST':
         form = ReportForm(request.POST)
         if form.is_valid():
@@ -138,6 +139,7 @@ def analysis(request, pendingid):
 
     try:
         pendingitem = PendingList.objects.get(id=pendingid)
+        print(pendingitem.patientId)
     except:
         return HttpResponsePermanentRedirect(reverse('doctor:dashboard'))
 
@@ -148,14 +150,17 @@ def analysis(request, pendingid):
     img = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"], 0)
     print(getdirectorystuffs(pendingitem)["IMAGE_DIR"])
     cv2.imwrite(getdirectorystuffs(pendingitem)["TEMP_IMAGE_DIR"], img)
+    print(pendingitem.type.name)
 
     # print(pendingitem.images.url)
-    if pendingitem.type.name in ["chest"]:
+    if pendingitem.type.name in ["chest", "Pneumonia"]:
         return render(request, 'doctor/pages/chestanalysis.html', context)
     elif pendingitem.type.name in ['elbow', 'finger', 'forearm', 'hand', 'humerus', 'shoulder', 'wrist']:
         return render(request, 'doctor/pages/msd.html', context)
     elif pendingitem.type.name in ["mammography"]:
         return render(request, 'doctor/pages/mammography.html', context)
+
+    return HttpResponse("In Analysys")
 
 
 # Return The Result After Analysis
@@ -172,13 +177,14 @@ def result(request):
     except:
         return HttpResponsePermanentRedirect(reverse('doctor:dashboard'))
 
-    if type in ["chest"]:
+    if type in ["chest", "Pneumonia"]:
+        print("generating pneumonia result")
         context = {'img_1.jpg': ['comment1.txt', 'report_1.jpg'], 'img_2.jpg': ['comment2.txt', 'report_2.jpg'],
                    'img_3.jpg': ['comment3.txt', 'report_3.jpg'], 'img_4.jpg': ['comment4.txt', 'report_4.jpg']}
 
         if getdirectorystuffs(pendingitem)['IMAGE_NAME'] in context:
             print(context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0], context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][1])
-            report = open("I:/study/iyess12/midas_final/media/classifiers/pneumonia/"
+            report = open("I:/updated/midas_final/media/classifiers/pneumonia/"
                           + context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0], "r+")
 
             final_report = ""

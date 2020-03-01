@@ -54,7 +54,7 @@
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
             <form class="form-signin" method="post">
-                <input type="hidden" name="csrfmiddlewaretoken" value="oddj6ivOEgj1ZrixljHdGcBkMOmt3cHO9y7yS6dLybmEfOhUDT98ztbLGktsCtmT">
+                {% csrf_token %}
               <div id="div_id_user_id" class="form-label-group">
                   <label for="id_user_id" class="col-form-label  requiredField">
                 <span class="asteriskField"></span>
