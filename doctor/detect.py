@@ -41,7 +41,7 @@ import matplotlib.patches as patches
 # In[ ]:
 
 
-weight_dir = "./modelweight/"
+weight_dir = "./doctor/modelweight/"
 
 """
 Task : View Classification of chest X-ray image - PA vs AP
