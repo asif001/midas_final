@@ -524,13 +524,13 @@ def GetPosition(pneum_box, lungs_box):
     rx1, ry1, rx2, ry2 = lungs_box[1][0], lungs_box[1][1], lungs_box[1][2], lungs_box[1][3]
     #     print((cx,cy),lungs_box)
     if (lx1 <= cx and cx <= lx2) and (ly1 <= cy and cy <= ly2 // 2):
-        return ('upper', 'left')
-    elif (lx1 <= cx and cx <= lx2) and (ly1 // 2 <= cy and cy <= ly2):
-        return ('lower', 'left')
-    elif (rx1 <= cx and cx <= rx2) and (ry1 <= cy and cy <= ry2 // 2):
         return ('upper', 'right')
-    else:
+    elif (lx1 <= cx and cx <= lx2) and (ly1 // 2 <= cy and cy <= ly2):
         return ('lower', 'right')
+    elif (rx1 <= cx and cx <= rx2) and (ry1 <= cy and cy <= ry2 // 2):
+        return ('upper', 'left')
+    else:
+        return ('lower', 'left')
 
 
 def report_generator(pneum_box, lungs_box):
