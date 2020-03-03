@@ -1,2 +1,0 @@
-Opacities detected on lower part of the left lung, evidence of pneumonia. 
-Pneumonia confidence: 0.63

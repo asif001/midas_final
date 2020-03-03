@@ -1,2 +1,0 @@
-Opacities detected on both sides of the lungs, evidence of pneumonia.
-Pnuemonia confidence: 0.78 

@@ -1,0 +1,2 @@
+pneumonia confidence: nan
+report : No pneumonia evidence found
