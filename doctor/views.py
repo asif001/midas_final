@@ -14,6 +14,7 @@ import os
 import cv2
 import shutil
 import numpy as np
+from .detect import ultimo
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -173,20 +174,21 @@ def result(request):
         return HttpResponsePermanentRedirect(reverse('doctor:dashboard'))
 
     if type in ["chest", "Pneumonia"]:
-        context = {'img_1.jpg': ['comment1.txt', 'report_1.jpg'], 'img_2.jpg': ['comment2.txt', 'report_2.jpg'],
-                   'img_3.jpg': ['comment3.txt', 'report_3.jpg'], 'img_4.jpg': ['comment4.txt', 'report_4.jpg']}
-
-        if getdirectorystuffs(pendingitem)['IMAGE_NAME'] in context:
-            report = open("/home/asifurarahman/midas_final/media/classifiers/pneumonia/"
-                          + context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][0], "r+")
-
-            final_report = ""
-
-            for line in report:
-                final_report = final_report + line + "<br/>"
-
-            sleep(1.5)
-            return HttpResponse(final_report+"?"+context[getdirectorystuffs(pendingitem)['IMAGE_NAME']][1])
+        img_pneum = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"], 0)
+        img_lung = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"])
+        dic = ultimo(img_pneum, img_lung)
+        cv2.imwrite(getdirectorystuffs(pendingitem)["TEMP_IMAGE_DIR"], dic['pneum'])
+        score, final_report = dic['report']
+        final_report = "" + score + "<br/>" + final_report
+        return HttpResponse(final_report+"?"+getdirectorystuffs(pendingitem)["TEMP_IMAGE_SRC"])
+    elif type in ["lung"]:
+        img_pneum = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"], 0)
+        img_lung = cv2.imread(getdirectorystuffs(pendingitem)["IMAGE_DIR"])
+        # img_pneum = cv2.imread('I:\\updated\\midas_final\\media\images\\1\\pending\\Asif(1)\\Pneumonia\\img_1.jpg', 0)
+        # img_lung = cv2.imread('I:\\updated\\midas_final\\media\images\\1\\pending\\Asif(1)\\Pneumonia\\img_1.jpg')
+        dic = ultimo(img_pneum, img_lung)
+        cv2.imwrite(getdirectorystuffs(pendingitem)["TEMP_IMAGE_DIR"], dic['lung'])
+        return HttpResponse(" " + "?" + getdirectorystuffs(pendingitem)["TEMP_IMAGE_SRC"])
     elif type in ["position"]:
         result = main.view_predict(getdirectorystuffs(pendingitem)["IMAGE_DIR"])
         return HttpResponse(result)

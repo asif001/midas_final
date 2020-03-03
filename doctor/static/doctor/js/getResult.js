@@ -16,14 +16,21 @@ getResultFun = (function (id, type) {
                 if(analysis_type === "Pneumonia"){
 
                     document.getElementById("pneumonia").innerHTML = this.responseText.split("?")[0];
-                    document.getElementById("myImg").src = "../../../../media/classifiers/pneumonia/"+this.responseText.split("?")[1];
+                    document.getElementById("myImg").src = ""+this.responseText.split("?")[1]+"?t=" + new Date().getTime();
+
+                }
+
+                if(analysis_type === "lung"){
+
+                    document.getElementById("lung").innerHTML = this.responseText.split("?")[0];
+                    document.getElementById("myImg").src = ""+this.responseText.split("?")[1]+"?t=" + new Date().getTime();
 
                 }
 
                 else if(analysis_type === "chest"){
 
                     document.getElementById("pneumonia").innerHTML = this.responseText.split("?")[0];
-                    document.getElementById("myImg").src = "../../../../media/classifiers/pneumonia/"+this.responseText.split("?")[1];
+                    document.getElementById("myImg").src = ""+this.responseText.split("?")[1]+"?t=" + new Date().getTime();
 
                 }
                 else if (analysis_type === "position"){
